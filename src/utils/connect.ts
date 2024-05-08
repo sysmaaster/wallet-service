@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import log from "./logger.service";
+import log from "../services/logger.service";
 
 async function connect() {
   const dbUri: string =

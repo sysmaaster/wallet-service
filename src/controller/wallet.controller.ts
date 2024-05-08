@@ -66,7 +66,6 @@ class WalletController {
     req: { body: WalletEditRequestModel; params: { id: string; }; },
     res: Response<WalletResponseModel | {}>
   ) {
-    log.info(req)
     try {
       const Wallet = await walletService.updateWallet(req.body, req.params.id);
       if (Wallet) {

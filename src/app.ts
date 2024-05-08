@@ -18,6 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // parse form data client
 
 /** Routes  */
-app.use(router);
+app.use(router());
 
 export default app;

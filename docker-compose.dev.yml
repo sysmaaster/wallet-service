@@ -1,12 +1,18 @@
 version: "3.7"
 services:
- api:
-  build:
-   context: .
-   target: build
-  volumes:
-   - ./:/app/
-   - /app/node_modules/
-  ports:
-   - 4000:4000
-  command: npm run dev
+  ui_service:
+    container_name: wallet_service
+    build:
+      context: .
+      target: build
+    volumes:
+      - ./:/app/
+      - /app/node_modules/
+    ports:
+      - 21222:21222
+    restart: always
+    environment:
+      - PORT=21222
+      - CONNECT_URL=mongodb://root:example@mongo:27017/wallet?authMechanism=DEFAULT&authSource=admin
+    command: yarn dev
+
